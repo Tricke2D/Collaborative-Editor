@@ -1,0 +1,27 @@
+{
+  "name": "collab-editor",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev:server": "pnpm --filter @collab-editor/server dev",
+    "dev:web": "pnpm --filter @collab-editor/web dev",
+    "dev": "concurrently \"pnpm dev:server\" \"pnpm dev:web\"",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write .",
+    "test": "pnpm --filter @collab-editor/crdt-core test && pnpm --filter @collab-editor/server test",
+    "test:coverage": "pnpm --filter @collab-editor/server test -- --coverage",
+    "demo": "pnpm --filter @collab-editor/crdt-core demo",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4",
+    "eslint": "^9.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.3.0"
+  }
+}
